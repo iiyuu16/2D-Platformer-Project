@@ -6,11 +6,15 @@ public class EndObject : MonoBehaviour
 {
     [SerializeField] private string key;
     [SerializeField] GameManager gameManager;
+    [SerializeField] TutorialManager tutorialManager;
     [SerializeField] private bool tutorialMode;
-    private void Start()
+    private void OnEnable()
     {
         key = "Key";
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (!tutorialMode)
+            gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        else
+            tutorialManager = GameObject.Find("TutorialManager").GetComponent<TutorialManager>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,7 +22,11 @@ public class EndObject : MonoBehaviour
         {
             if (key == collision.gameObject.GetComponent<PlayerInventory>().CheckItem())
             {
-                gameManager.doorUnlocked = true;
+                if (!tutorialMode)
+                    gameManager.doorUnlocked = true;
+                else
+                    tutorialManager.doorUnlocked = true;
+                    
             }
         }
     }

@@ -17,11 +17,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float groundCheckDistance = 0.5f;
     [SerializeField] float speed = 5.0f;
     [SerializeField] float jumpHeight = 1.0f;
+    private bool tutorialMode;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<CapsuleCollider2D>();
 
+        if(TutorialManager.Instance != null)
+        {
+            tutorialMode = true;
+        }
         moveAction = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");
     }
@@ -31,7 +36,16 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(new Vector2(moveAction.ReadValue<float>() * speed * Time.deltaTime, 0), ForceMode2D.Impulse);
 
         if (jumpAction.IsPressed() && IsGrounded())
+        {
             rb.AddForce(Vector2.up * jumpHeight, ForceMode2D.Impulse);
+            if (tutorialMode)
+            {
+                TutorialMode();
+                tutorialMode = false;
+            }
+                
+        }
+            
     }
 
     public bool IsGrounded()
@@ -45,6 +59,11 @@ public class PlayerMovement : MonoBehaviour
             return true;
 
         return false;
+    }
+    
+    private void TutorialMode()
+    {
+        TutorialManager.Instance.FinishedMovementTutorial();
     }
     
     private void OnDrawGizmos()
