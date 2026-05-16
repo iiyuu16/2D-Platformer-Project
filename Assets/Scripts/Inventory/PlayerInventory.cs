@@ -24,6 +24,10 @@ public class PlayerInventory : MonoBehaviour
             if (!inventoryOpen)
             {
                 inventoryOpen = true;
+                if (TutorialManager.Instance != null)
+                {
+                    TutorialManager.Instance.OpenedInventory();
+                }
                 inventoryScreen.OpenInventoryMenu(items);
             }
             else

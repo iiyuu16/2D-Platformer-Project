@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float currentDirection = 1.0f;
     [SerializeField] float speed = 3.0f;
     [SerializeField] float wallCheckDistance = 0.25f;
+    [SerializeField] bool tutorialMode = false;
     public LayerMask wallLayer;
 
 
@@ -35,6 +36,8 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (tutorialMode)
+            return;
         if (collision.gameObject.CompareTag("Player"))
             collision.gameObject.GetComponent<PlayerManager>().IncrementLives(-damagePerCollision);
     }
