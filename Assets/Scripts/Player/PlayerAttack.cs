@@ -29,6 +29,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (attackAction.IsPressed())
             attackHitbox.AttackOnHitbox();
+            
     }
 
     public void ShowAttackSprite()

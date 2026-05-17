@@ -39,7 +39,22 @@ public class PlayerAttackHitbox : MonoBehaviour
         foreach (var enemy in enemiesToKill)
         {
             enemiesInHitbox.Remove(enemy);
-            enemy.GetComponent<Enemy>().KillEnemy();
+
+            Enemy normalEnemy = enemy.GetComponent<Enemy>();
+            if (normalEnemy != null)
+            {
+                normalEnemy.KillEnemy();
+                continue;
+            }
+
+            EnemyBoss bossEnemy = enemy.GetComponent<EnemyBoss>();
+            if (bossEnemy != null)
+            {
+                bossEnemy.TakeDamage(1);
+                continue;
+            }
+
+            Debug.LogWarning("Attack hitbox struck an object tagged as Enemy without an Enemy or EnemyBoss component: " + enemy.name);
         }
     }
 

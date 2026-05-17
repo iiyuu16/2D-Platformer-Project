@@ -44,4 +44,9 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void BossGame()
+    {
+        SceneManager.LoadScene(3);
+    }
 }
