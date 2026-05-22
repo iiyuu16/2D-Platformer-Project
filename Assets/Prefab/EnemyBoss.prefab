@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 1628218354, guid: 9c4e196d6b0814f419878cfaf6ba4aae, type: 3}
-  m_Color: {r: 1, g: 1, b: 0.24705882, a: 1}
+  m_Color: {r: 1, g: 0.98885125, b: 0, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -141,7 +141,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.021906734, y: 0.50069785}
+  m_Offset: {x: 0.030520558, y: 0.5437631}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -152,7 +152,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.68618655, y: 1.0013957}
+  m_Size: {x: 1.0981152, y: 1.0875262}
   m_EdgeRadius: 0
 --- !u!50 &3218960062401863727
 Rigidbody2D:
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePerCollision: 1
   currentDirection: 1.88
-  speed: 3
+  speed: 2.5
   wallCheckDistance: 2
   attackRange: 10
   launchForce: 15
