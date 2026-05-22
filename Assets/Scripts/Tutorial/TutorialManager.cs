@@ -40,6 +40,16 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+    public void Restart()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void ShowTutorialWindow(string _tutorialText, string _tutorialTitle)
     {
         tutorialPanel.SetActive(true);
